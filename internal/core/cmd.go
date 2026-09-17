@@ -23,6 +23,7 @@ import (
 	"github.com/toksikk/gidbig/internal/leetoclock"
 	"github.com/toksikk/gidbig/internal/llm"
 	"github.com/toksikk/gidbig/internal/stoll"
+	"github.com/toksikk/gidbig/internal/wardogs"
 	"github.com/toksikk/gidbig/internal/wttrin"
 )
 
@@ -366,6 +367,14 @@ func StartGidbig() {
 			discord.AddHandler(l)
 		}
 	}
+	wardogsMod := wardogs.New()
+	if err := wardogsMod.Init(bot.Deps{Session: discord, OwnerID: conf.Discord.OwnerID}); err != nil {
+		slog.Error("wardogs: init failed", "error", err)
+	} else {
+		for _, l := range wardogsMod.Listeners() {
+			discord.AddHandler(l)
+		}
+	}
 	wttrinMod := wttrin.New()
 	if err := wttrinMod.Init(bot.Deps{Session: discord, OwnerID: conf.Discord.OwnerID, LLM: llm.GetClient()}); err != nil {
 		slog.Error("wttrin: init failed", "error", err)
@@ -384,6 +393,7 @@ func StartGidbig() {
 	cmds = append(cmds, esoMod.Commands()...)
 	cmds = append(cmds, gippity.Commands()...)
 	cmds = append(cmds, stollMod.Commands()...)
+	cmds = append(cmds, wardogsMod.Commands()...)
 	cmds = append(cmds, wttrinMod.Commands()...)
 	if _, err := discord.ApplicationCommandBulkOverwrite(discord.State.User.ID, "", cmds); err != nil {
 		slog.Error("Failed to register slash commands", "error", err)

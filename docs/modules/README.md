@@ -13,6 +13,7 @@ One file per internal package. Each doc: what it does + sequence diagram of the 
 | [wttrin](wttrin.md) | `/wttr` `/wttrf` | Weather + forecast via wttr.in + LLM outro |
 | [eso](eso.md) | `/eso` | Esoteric nonsense generator (LLM, fallback) |
 | [stoll](stoll.md) | `/stoll` | Random Dr. Axel Stoll quote |
+| [wardogs](wardogs.md) | `/wardogs` | WARDOGS Linux/Proton support check via doeswardogshavelinux.support |
 | [gamerstatus](gamerstatus.md) | – | Rotating bot game status |
 | [admin](admin.md) | `/admin` | Owner-only admin dispatch, aggregates providers |
 
