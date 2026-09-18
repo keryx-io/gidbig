@@ -23,6 +23,7 @@ Gidbig is a Discord bot written in Go — soundboard playback in voice channels,
 
 | Plugin | What it does |
 |---|---|
+| 🛡️ **anticheat** | `/anticheat query:<game or vendor>` — searches the GamingOnLinux Linux/Steam Deck anti-cheat compatibility list (works/broken, Proton and native Linux status, notes) |
 | ☕ **coffee** | Greets users with their preferred morning beverage when they say "moin", "morgen", etc. `/setbeverage` configures it, `/brew` serves a selected drink, and `/coffeemachine` manages and reports machine state |
 | 🔮 **eso** | `/eso [thema]` generates esoteric pseudoscience nonsense through the LLM, with a local fallback |
 | 🎮 **gamerstatus** | Rotates the bot's Discord game/activity status every 5–15 minutes after an initial 5-minute delay |

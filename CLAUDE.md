@@ -63,7 +63,7 @@ Gidbig is a Discord bot focused on soundboard playback in voice channels, with a
 4. Pre-load all `.dca` audio into memory as Opus frame buffers
 5. Open Discord WebSocket, register `onMessageCreate` and interaction handlers
 6. Initialize LLM client and resolve personality
-7. Initialize each module (coffee, eso, gamerstatus, gippity, leetoclock, stoll, wttrin) via its `Init()` or `Start()` call
+7. Initialize each module (anticheat, coffee, eso, gamerstatus, gippity, leetoclock, stoll, wttrin) via its `Init()` or `Start()` call
 8. Register all slash commands via `ApplicationCommandBulkOverwrite`
 
 ### Module system (built-in)
@@ -89,6 +89,7 @@ Standard library `net/http` (`ServeMux`) + AES-GCM encrypted cookie session stor
 | `internal/cfg` | YAML config loading |
 | `internal/bot` | Module interface, deps, router, middleware |
 | `internal/admin` | `/admin` slash command, admin subcommand registry |
+| `internal/anticheat` | GamingOnLinux anti-cheat compatibility lookup with a cached CSV dataset |
 | `internal/llm` | Shared OpenAI/LLM client |
 | `internal/gippity` | OpenAI integration with GORM/SQLite conversation history |
 | `internal/leetoclock` | Time-based joke module with SQLite datastore |
